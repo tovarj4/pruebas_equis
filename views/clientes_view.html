@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+<form role="form" class="center">
+    <legend>Clientes</legend>
+    <fieldset>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputId">
+                Numero de Cliente
+            </label>
+            <input type="text" class="form-control" id="InputId" readonly="true" disabled="true">
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputName">
+                Nombre
+            </label>
+            <input type="text" class="form-control" id="InputName">
+        </div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputPhone">
+                Telefono
+            </label>
+            <input type="text" class="form-control" id="InputPhone">
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputAddress">
+                Calle y numero
+            </label>
+            <input type="text" class="form-control" id="InputAddress">
+        </div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputPostal">
+                Codigo Postal
+            </label>
+            <input type="numeric" class="form-control" id="InputPostal">
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
+
+            <label for="InputState">
+                Estado
+            </label>
+            <input type="text" class="form-control" id="InputState" disabled="true">
+        </div>
+        <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
+
+            <label for="InputMunicipality">
+                Municipio
+            </label>
+            <input type="text" class="form-control" id="InputMunicipality" disabled="true">
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputNeighborhood">
+                Colonia
+            </label>
+            <input type="text" class="form-control" id="InputNeighborhood">
+        </div>
+        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+
+            <label for="InputContactPerson">
+                Contacto
+            </label>
+            <input type="text" class="form-control" id="InputContactPerson">
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group button-group col-sm-9 col-sm-4 col-md-4 col-lg-4 ">
+            <br>
+            <button type="button" id="btnAdd" onclick="student.add();" class="btn btn-success">
+                Save
+            </button>
+            <button type="button" id="btnEdit" onclick="student.edit();" class="btn btn-warning">
+                Edit
+            </button>
+            <button type="button" id="btnDelete" onclick="student.delete();" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+
+</form>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table" id="tblStudent">
+            <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Student Name
+                </th>
+                <th>
+                    Student Age
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
