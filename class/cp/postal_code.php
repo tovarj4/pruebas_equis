@@ -5,7 +5,7 @@
  * Date: 22/03/19
  * Time: 05:07 PM
  */
-include_once ("core/db_core.php");
+include_once ("../core/db.core.php");
 class postal_code extends db_core
 {
     var $error = false;
@@ -36,12 +36,13 @@ class postal_code extends db_core
             $this->qry = $sql;
             $this->error = 'false';
 
-            return $array;
+
         }
         catch (PDOException $e) {
             $this->error = 'true';
-            echo "ERROR: " . $e->getMessage();
+            $array = array ("ERROR: " => $e->getMessage());
         }
+        return $array;
     }
 
     public function getColonias()
@@ -62,7 +63,8 @@ class postal_code extends db_core
         }
         catch (PDOException $e) {
             $this->error = 'true';
-            echo "ERROR: " . $e->getMessage();
+            $array = array ("ERROR: " => $e->getMessage());
         }
+        return $array;
     }
 }
