@@ -1,4 +1,5 @@
 var studentUrl = "class/students.fn.php";
+var colonias ="";
 var student =
 {
     listStudents: function()
@@ -238,4 +239,39 @@ var clientes =
         show : function () {
             $("#content").empty().load("./views/clientes_view.html");
         }
+        ,
+        loadDomicilios : function(){
+            var parametros =
+                {
+                    "cp": $("#InputPostal").val()
+                };
+            $.ajax(
+                {
+                    data: parametros,
+                    url: "class/cp/postal_code.php",
+                    type: "post",
+                    success: function(response)
+                    {
+                        if(response.estado == "OK"){
+                            $("#InputState").val(response.estado);
+                            $("#InputMunicipality").val(response.municipio);
+                            colonias = response.colonias;
+                        }
+
+
+                    },
+                    error: function(xhr, tStatus, err)
+                    {
+                        swal("", tStatus + " --- " + xhr.responseText, "error");
+                    }
+                });
+        }
     }
+
+
+$(document).ready(function(){
+    $("#InputPostal").focusout(function() {
+            alert("focus out");
+            clientes.loadDomicilios();
+        });
+});

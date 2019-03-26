@@ -8,26 +8,32 @@ include_once _('postal_code.php');
  */
 $_cp = new postal_code();
 
-if (isset($_GET['cp']))
+if (isset($_POST['cp']))
 {
-    $codigo = $_GET['cp'];
+    $codigo = $_POST['cp'];
     $_cp->setCp($codigo);
     $arrEdoMnpo = $_cp->getEstadoMunicipio();
     $arrColonias = $_cp->getColonias();
 
-    $colonias="";
+    if(count($arrEdoMnpo) >0 && count($arrColonias) >0){
+        $colonias="";
 
-    for($i=0;$i<count($arrColonias);$i++)
-    {
-        $colonias .=  $arrColonias[$i]['colonia'] ;
-        if($i+1 < count($arrColonias)){
-            $colonias .= ',';
+        for($i=0;$i<count($arrColonias);$i++)
+        {
+            $colonias .=  $arrColonias[$i]['colonia'] ;
+            if($i+1 < count($arrColonias)){
+                $colonias .= ',';
+            }
+
         }
 
+
+        $response = array('status'=>'OK','estado' => utf8_encode($arrEdoMnpo[0]['estado']),'municipio' => utf8_encode($arrEdoMnpo[0]['municipio']), 'colonias' =>  utf8_encode($colonias) );
+
+    }else{
+        $response = array('status'=>'FAIL',"message" => "no se encontraron registros para ese CP.");
     }
 
-
-    $response = array('estado' => $arrEdoMnpo[0]['municipio'],'municipio' => $arrEdoMnpo[0]['estado'], 'colonias' =>  utf8_encode($colonias) );
 
     echo(json_encode($response));
 
