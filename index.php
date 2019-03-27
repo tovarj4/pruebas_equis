@@ -136,9 +136,24 @@
     </div>
 </div>
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweet-alert.js"></script>
     <script src="js/scripts.js"></script>
+<script>
+    $(document).on("focusout","#InputPostal",function(){
 
+        clientes.loadDomicilios();
+    });
+
+    $(document).on('keyup','#InputNeighborhood',function(){
+        //alert(colonias);
+
+        $( "#InputNeighborhood" ).autocomplete({
+            source:colonias
+        });
+    });
+
+</script>
 </body>
 </html>

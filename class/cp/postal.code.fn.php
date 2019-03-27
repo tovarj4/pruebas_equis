@@ -20,15 +20,19 @@ if (isset($_POST['cp']))
 
         for($i=0;$i<count($arrColonias);$i++)
         {
-            $colonias .=  $arrColonias[$i]['colonia'] ;
+            if($i==0){$colonias .='[';}
+
+            $colonias .= '"'. $arrColonias[$i]['colonia'] .'"';
             if($i+1 < count($arrColonias)){
                 $colonias .= ',';
             }
+            if($i==(count($arrColonias) - 1)){$colonias .=']';}
 
         }
 
 
-        $response = array('status'=>'OK','estado' => utf8_encode($arrEdoMnpo[0]['estado']),'municipio' => utf8_encode($arrEdoMnpo[0]['municipio']), 'colonias' =>  utf8_encode($colonias) );
+        $response = array(
+            'status'=>'OK','estado' => utf8_encode($arrEdoMnpo[0]["estado"]),'municipio' => utf8_encode($arrEdoMnpo[0]["municipio"]), 'colonias' =>  utf8_encode($colonias) );
 
     }else{
         $response = array('status'=>'FAIL',"message" => "no se encontraron registros para ese CP.");

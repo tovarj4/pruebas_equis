@@ -248,15 +248,22 @@ var clientes =
             $.ajax(
                 {
                     data: parametros,
-                    url: "class/cp/postal_code.php",
+                    url: "class/cp/postal.code.fn.php",
                     type: "post",
+                    dataType: "json",
                     success: function(response)
                     {
-                        if(response.estado == "OK"){
+                        if(response.status == "OK"){
                             $("#InputState").val(response.estado);
                             $("#InputMunicipality").val(response.municipio);
                             colonias = response.colonias;
                         }
+
+                        //alert(colonias)
+                        $("#InputNeighborhood").autocomplete({
+                            //
+                            source: colonias
+                        });
 
 
                     },
@@ -269,9 +276,4 @@ var clientes =
     }
 
 
-$(document).ready(function(){
-    $("#InputPostal").focusout(function() {
-            alert("focus out");
-            clientes.loadDomicilios();
-        });
-});
+
