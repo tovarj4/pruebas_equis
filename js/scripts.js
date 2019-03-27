@@ -240,10 +240,11 @@ var clientes =
             $("#content").empty().load("./views/clientes_view.html");
         }
         ,
-        loadDomicilios : function(){
+        loadMunicipios : function(){
             var parametros =
                 {
-                    "cp": $("#InputPostal").val()
+                    "cp": $("#InputPostal").val(),
+                    "w" : "m"
                 };
             $.ajax(
                 {
@@ -256,16 +257,43 @@ var clientes =
                         if(response.status == "OK"){
                             $("#InputState").val(response.estado);
                             $("#InputMunicipality").val(response.municipio);
-                            colonias = response.colonias;
+
                         }
 
-                        //alert(colonias)
-                        $("#InputNeighborhood").autocomplete({
-                            //
-                            source: colonias
-                        });
+                    },
+                    error: function(xhr, tStatus, err)
+                    {
+                        swal("", tStatus + " --- " + xhr.responseText, "error");
+                    }
+                });
+        }
+        ,
+        loadColonias : function(){
+            var parametros =
+                {
+                    "cp": $("#InputPostal").val(),
+                    "w" : "c"
+                };
+            colonias = "";
+            $.ajax(
+                {
+                    data: parametros,
+                    url: "class/cp/postal.code.fn.php",
+                    type: "post",
+                    dataType: "json",
+                    success: function(response)
+                    {
+                        //JSON.parse(response);
+                        colonias = {
+                            data: response
+                        };
 
 
+
+                    },
+                    complete: function(){
+                        $("#InputNeighborhood").easyAutocomplete(colonias);
+                        $("#InputNeighborhood").focus();
                     },
                     error: function(xhr, tStatus, err)
                     {

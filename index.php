@@ -140,20 +140,20 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweet-alert.js"></script>
     <script src="js/scripts.js"></script>
-<script>
-    $(document).on("focusout","#InputPostal",function(){
+    <script src="js/autocomplete/jquery.easy-autocomplete.min.js"></script>
+    <link href="js/autocomplete/easy-autocomplete.min.css" rel="stylesheet">
+    <link href="js/autocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
 
-        clientes.loadDomicilios();
-    });
+    <script>
+        $(document).on("focusout","#InputPostal",function(){
 
-    $(document).on('keyup','#InputNeighborhood',function(){
-        //alert(colonias);
+            clientes.loadMunicipios();
+            clientes.loadColonias();
 
-        $( "#InputNeighborhood" ).autocomplete({
-            source:colonias
+
+
         });
-    });
 
-</script>
+    </script>
 </body>
 </html>

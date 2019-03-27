@@ -6,7 +6,7 @@
  * Time: 05:07 PM
  */
 include_once ("../core/db.core.php");
-class postal_code extends db_core
+class _code extends db_core
 {
     var $error = false;
     var $qry = "sin query";
