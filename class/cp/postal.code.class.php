@@ -24,14 +24,18 @@ class _code extends db_core
     public function getEstadoMunicipio()
     {
         try {
-            $conn = parent::getConnection();
-            $sql = "SELECT estado, municipio";
-            $sql .= " FROM codigos_postales WHERE codigo_postal =:cp limit 1;";
 
-            $stmt = $conn->prepare($sql);
-            $stmt->execute(array(":cp" => $this->cp));
 
-            $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            /*
+             * $conn = parent::getConnection();
+             * $stmt = $conn->prepare($sql);
+             * $stmt->execute(array(":cp" => $this->cp));
+             * $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            */
+            $sql = "SELECT estado, municipio FROM codigos_postales WHERE codigo_postal =:cp limit 1;";
+            $this->executeQuery($sql,array(":cp" => $this->cp),true);
+            $array = $this->resultArray;
 
             $this->qry = $sql;
             $this->error = 'false';
@@ -48,13 +52,10 @@ class _code extends db_core
     public function getColonias()
     {
         try {
-            $conn = parent::getConnection();
-            $sql = "SELECT colonia";
-            $sql .= " FROM codigos_postales WHERE codigo_postal =:cp order by colonia;";
 
-            $stmt = $conn->prepare($sql);
-            $stmt->execute(array(":cp" => $this->cp));
-            $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $sql = "SELECT colonia FROM codigos_postales WHERE codigo_postal =:cp order by colonia;";
+            $this->executeQuery($sql,array(":cp" => $this->cp),true);
+            $array = $this->resultArray;
 
             $this->qry = $sql;
             $this->error = 'false';

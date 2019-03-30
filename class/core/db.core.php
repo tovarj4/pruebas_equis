@@ -10,6 +10,8 @@ include_once ("db.inc");
 class db_core
 {
     private $connection;
+    public $result;
+    public $resultArray;
     /**
      * student::mysqlLink()
      *
@@ -40,6 +42,36 @@ class db_core
     public function getConnection()
     {
         return $this->connection;
+    }
+
+    /**
+     * @param $query
+     * @param $params
+     * @param $getArray
+     */
+    public function executeQuery($query,$params,$getArray)
+    {
+        $this->result = false;
+        try {
+
+            $conn = $this->connection;
+            $stmt = $conn->prepare($query);
+            $stmt->execute($params);
+
+            if($getArray){
+                $this->resultArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+            $this->result = true;
+        }
+        catch (PDOException $e) {
+
+            $this->result = false;
+
+            echo "ERROR: " . $e->getMessage();
+
+
+        }
     }
 
 
