@@ -10,7 +10,7 @@ include_once ("db.inc");
 class db_core
 {
     private $connection;
-    public $result;
+    public $dbResult;
     public $resultArray;
     /**
      * student::mysqlLink()
@@ -51,7 +51,7 @@ class db_core
      */
     public function executeQuery($query,$params,$getArray)
     {
-        $this->result = false;
+        $this->dbResult = false;
         try {
 
             $conn = $this->connection;
@@ -62,11 +62,11 @@ class db_core
                 $this->resultArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
 
-            $this->result = true;
+            $this->dbResult = true;
         }
         catch (PDOException $e) {
 
-            $this->result = false;
+            $this->dbResult = false;
 
             echo "ERROR: " . $e->getMessage();
 

@@ -13,4 +13,6 @@ interface Crud
     public function delete();
     public function selectSingle();
     public function selectAll();
+
+
 }
