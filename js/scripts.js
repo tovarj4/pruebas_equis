@@ -311,6 +311,8 @@ var clientes =
                 "action": "1",
                 "name": $("#InputName").val(),
                 "phone": $("#InputPhone").val(),
+                "rfc": $("#InputRfc").val(),
+                "social": $("#InputSocial").val(),
                 "address": $("#InputAddress").val(),
                 "postal": $("#InputIdPostal").val(),
                 "contact": $("#InputContactPerson").val(),

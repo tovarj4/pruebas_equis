@@ -8,22 +8,26 @@ class Clientes extends db_core implements Crud
     private $clienteArray;
 
     private $idCliente;
-    private $sqlInsert="INSERT INTO clientes(nombre, telefono, direccion, id_codigo_postal, persona_contacto, email, id_status)"
-                      ." VALUES(:nombre, :telefono, :direccion,:codigoPostal, :personaContacto, :email,:status);";
-    private $sqlSelectOne= "SELECT id,nombre, telefono, direccion, id_codigo_postal, persona_contacto, email, id_status FROM clientes WHERE id = :id;";
+    private $sqlInsert="INSERT INTO clientes(nombre, telefono, direccion, id_codigo_postal, persona_contacto, email,rfc, razon_social, id_status)"
+                      ." VALUES(:nombre, :telefono, :direccion,:codigoPostal, :personaContacto, :email, :rfc, :razonSocial,:status);";
+    private $sqlSelect= "SELECT id,nombre, telefono,direccion,codigo_postal,colonia,municipio,estado,persona_contacto,rfc,razon_social,status FROM vw_clientes";
 
 
     public function setNew(
-        $nombre,$telefono,$direccion,$codigoPostal,$personaContacto,$email,$status
+        $nombre,$telefono,$direccion,$codigoPostal,$personaContacto,$email,$rfc,$razonSocial,$status
     ){
         $clientes = new clientes_model();
-        $this->cliente = $clientes->new($nombre,$telefono,$direccion,$codigoPostal,'','','',$personaContacto,$email,$status);
+        $this->cliente = $clientes->new($nombre,$telefono,$direccion,$codigoPostal,'','','',$personaContacto,$email,$rfc,$razonSocial,$status);
         $this->clienteArray =  $clientes->objectToArrayInsert();
         return $this->create();
     }
     public function  getOne($id){
         $this->idCliente = $id;
         return $this->selectSingle();
+    }
+    public function  getAll(){
+
+        return $this->selectAll();
     }
 
     public function create()
@@ -51,14 +55,16 @@ class Clientes extends db_core implements Crud
 
     public function selectSingle()
     {
-        $this->executeQuery($this->sqlSelectOne,array(":id"=>$this->idCliente),true);
+        $this->executeQuery($this->sqlSelect." WHERE id =:id",array(":id"=>$this->idCliente),true);
         $clientes = new clientes_model();
         return $clientes->objectToJson($this->resultArray);
-        // TODO: Implement select() method.
+
     }
 
     public function selectAll()
     {
-        // TODO: Implement select() method.
+        $this->executeQuery($this->sqlSelect,"",true);
+        $clientes = new clientes_model();
+        return $clientes->objectToJson($this->resultArray);
     }
 }

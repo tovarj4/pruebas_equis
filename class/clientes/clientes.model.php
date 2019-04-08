@@ -18,11 +18,13 @@ class clientes_model extends CommonFunctions
     private $municipio;
     private $personaContacto;
     private $email;
+    private $rfc;
+    private $razonSocial;
     private $status;
 
 
     public function new(
-        $nombre,$telefono,$direccion,$codigoPostal,$colonia,$estado,$municipio,$personaContacto,$email,$status
+        $nombre,$telefono,$direccion,$codigoPostal,$colonia,$estado,$municipio,$personaContacto,$email,$rfc,$razonSocial,$status
     ){
 
         $this->nombre=$nombre;
@@ -34,6 +36,9 @@ class clientes_model extends CommonFunctions
         $this->municipio = $municipio;
         $this->personaContacto = $personaContacto;
         $this->email = $email;
+        $this->rfc = $rfc;
+        $this->razonSocial = $razonSocial;
+
         $this->status = $status;
     }
 
@@ -70,6 +75,8 @@ class clientes_model extends CommonFunctions
             ":codigoPostal" => $this->codigoPostal,
             ":personaContacto" => $this->personaContacto,
             ":email" => $this->email,
+            ":rfc" => $this->rfc,
+            ":razonSocial" => $this->razonSocial,
             ":status" => $this->status
         );
         return $array;

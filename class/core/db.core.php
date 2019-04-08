@@ -56,7 +56,13 @@ class db_core
 
             $conn = $this->connection;
             $stmt = $conn->prepare($query);
-            $stmt->execute($params);
+            if(is_array($params) && count($params) > 0){
+                $stmt->execute($params);
+            }else{
+                $stmt->execute();
+            }
+
+
 
             if($getArray){
                 $this->resultArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
