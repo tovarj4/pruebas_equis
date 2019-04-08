@@ -20,7 +20,7 @@ if (isset($_POST['cp']) && isset($_POST['w'])) {
 
         if (count($arrEdoMnpo) > 0) {
             $response = array(
-                'status' => 'OK', 'estado' => utf8_encode($arrEdoMnpo[0]["estado"]), 'municipio' => utf8_encode($arrEdoMnpo[0]["municipio"]));
+                'status' => 'OK' , 'cpostal' => utf8_encode($arrEdoMnpo[0]["id"]), 'estado' => utf8_encode($arrEdoMnpo[0]["estado"]), 'municipio' => utf8_encode($arrEdoMnpo[0]["municipio"]));
 
         } else {
             $response = array('status' => 'FAIL', "message" => "no se encontraron registros para ese CP.");

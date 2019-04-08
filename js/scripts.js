@@ -234,12 +234,8 @@ var student =
     }
 }
 
-var clientes =
+var domicilios =
     {
-        show : function () {
-            $("#content").empty().load("./views/clientes_view.html");
-        }
-        ,
         loadMunicipios : function(){
             var parametros =
                 {
@@ -257,6 +253,7 @@ var clientes =
                         if(response.status == "OK"){
                             $("#InputState").val(response.estado);
                             $("#InputMunicipality").val(response.municipio);
+                            $("#InputIdPostal").val(response.cpostal);
 
                         }
 
@@ -301,7 +298,51 @@ var clientes =
                     }
                 });
         }
+
     }
+var clientes =
+    {
+        show : function () {
+            $("#content").empty().load("./views/clientes_view.html");
+        },
+        add :function () {
+
+            let params = {
+                "action": "1",
+                "name": $("#InputName").val(),
+                "phone": $("#InputPhone").val(),
+                "address": $("#InputAddress").val(),
+                "postal": $("#InputIdPostal").val(),
+                "contact": $("#InputContactPerson").val(),
+                "contactMail": $("#InputClientEmail").val()
+            }
+
+            $.ajax(
+                {
+                    data: params,
+                    url: "class/clientes/clientes.fn.php",
+                    type: "post",
+                    dataType: "json",
+                    success: function(response)
+                    {
+                        if (response.status == 'OK')
+                        {
+                            swal("Success!", "Cliente Agregado", "success");
+                        }
+                        else
+                        {
+                            swal("Error!", 'Something wrong happen...', "error");
+                        }
+                    },
+                    error: function(xhr, tStatus, err)
+                    {
+                        swal("", tStatus + " --- " + xhr.responseText, "error");
+                    }
+                });
+
+        }
+    }
+
 
 
 

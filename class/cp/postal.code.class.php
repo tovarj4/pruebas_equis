@@ -33,7 +33,7 @@ class _code extends db_core
              * $stmt->execute(array(":cp" => $this->cp));
              * $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
             */
-            $sql = "SELECT estado, municipio FROM codigos_postales WHERE codigo_postal =:cp limit 1;";
+            $sql = "SELECT id, estado, municipio FROM codigos_postales WHERE codigo_postal =:cp limit 1;";
             $this->executeQuery($sql,array(":cp" => $this->cp),true);
             $array = $this->resultArray;
 

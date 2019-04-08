@@ -147,8 +147,8 @@
     <script>
         $(document).on("focusout","#InputPostal",function(){
 
-            clientes.loadMunicipios();
-            clientes.loadColonias();
+            domicilios.loadMunicipios();
+            domicilios.loadColonias();
 
 
 
