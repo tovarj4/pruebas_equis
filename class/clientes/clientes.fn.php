@@ -7,7 +7,7 @@
  */
 include_once ("./clientes.class.php");
 $clientes = new  Clientes();
-
+/*
 if(isset($_GET['action'])){
 
     if($_GET['action'] == 1){
@@ -20,7 +20,7 @@ if(isset($_GET['action'])){
         echo($clientes->getOne($_GET['id']));
     }
 }
-
+*/
 if(isset($_POST['action'])){
 
     if($_POST['action'] == 1){
