@@ -1,142 +1,151 @@
 
 <div class="container">
     <div class="row">
-<form role="form" class="center">
-    <legend>Clientes</legend>
-    <fieldset>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+        <button class="btn btn-primary " onclick="javascript:clientes.showfrm();">Nuevo <span class="glyphicon glyphicon-floppy-disk"></span> </button>
+        <form role="form" class="center" id="frm_clientes">
+            <legend>Clientes</legend>
+            <fieldset>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputId">
-                Numero de Cliente
-            </label>
-            <input type="text" class="form-control" id="InputId" readonly="true" disabled="true">
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <label for="InputId">
+                        Numero de Cliente
+                    </label>
+                    <input type="text" class="form-control" id="InputId" readonly="true" disabled="true">
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputName">
-                Nombre
-            </label>
-            <input type="text" class="form-control" id="InputName">
-        </div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <label for="InputName">
+                        Nombre
+                    </label>
+                    <input type="text" class="form-control" id="InputName">
+                </div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputPhone">
-                Telefono
-            </label>
-            <input type="text" class="form-control" id="InputPhone">
-        </div>
+                    <label for="InputPhone">
+                        Telefono
+                    </label>
+                    <input type="text" class="form-control" id="InputPhone">
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputRfc">
-                RFC
-            </label>
-            <input type="text" class="form-control" id="InputRfc" maxlength="13">
-        </div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <label for="InputRfc">
+                        RFC
+                    </label>
+                    <input type="text" class="form-control" id="InputRfc" maxlength="13">
+                </div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputSocial">
-                Razon Social
-            </label>
-            <input type="text" class="form-control" id="InputSocial">
-        </div>
+                    <label for="InputSocial">
+                        Razon Social
+                    </label>
+                    <input type="text" class="form-control" id="InputSocial">
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputAddress">
-                Calle y numero
-            </label>
-            <input type="text" class="form-control" id="InputAddress">
-        </div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <label for="InputAddress">
+                        Calle y numero
+                    </label>
+                    <input type="text" class="form-control" id="InputAddress">
+                </div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputPostal">
-                Codigo Postal
-            </label>
-            <input type="numeric" class="form-control" id="InputPostal">
-			<input type="hidden" class="form-control" id="InputIdPostal">
-        </div>
+                    <label for="InputPostal">
+                        Codigo Postal
+                    </label>
+                    <input type="numeric" class="form-control" id="InputPostal">
+                    <input type="hidden" class="form-control" id="InputIdPostal">
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
 
-            <label for="InputState">
-                Estado
-            </label>
-            <input type="text" class="form-control" id="InputState" disabled="true">
-        </div>
-        <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
+                    <label for="InputState">
+                        Estado
+                    </label>
+                    <input type="text" class="form-control" id="InputState" disabled="true">
+                </div>
+                <div class="form-group col-sm-4 col-sm-2 col-md-2 col-lg-4">
 
-            <label for="InputMunicipality">
-                Municipio
-            </label>
-            <input type="text" class="form-control" id="InputMunicipality" disabled="true">
-        </div>
+                    <label for="InputMunicipality">
+                        Municipio
+                    </label>
+                    <input type="text" class="form-control" id="InputMunicipality" disabled="true">
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
-            <div class="ui-widget">
-                <label for="InputNeighborhood">
-                    Colonia
-                </label>
-                <input type="text" class="form-control" id="InputNeighborhood">
-            </div>
-        </div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <div class="ui-widget">
+                        <label for="InputNeighborhood">
+                            Colonia
+                        </label>
+                        <input type="text" class="form-control" id="InputNeighborhood">
+                    </div>
+                </div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
 
-            <label for="InputContactPerson">
-                Persona de Contacto
-            </label>
-            <input type="text" class="form-control" id="InputContactPerson">
-        </div>
+                    <label for="InputContactPerson">
+                        Persona de Contacto
+                    </label>
+                    <input type="text" class="form-control" id="InputContactPerson">
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
-            <div class="ui-widget">
-                <label for="InputClientEmail">
-                    Email
-                </label>
-                <input type="email" class="form-control" id="InputClientEmail">
-            </div>
-        </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-sm-9 col-sm-4 col-md-4 col-lg-4">
+                    <div class="ui-widget">
+                        <label for="InputClientEmail">
+                            Email
+                        </label>
+                        <input type="email" class="form-control" id="InputClientEmail">
+                    </div>
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="form-group button-group col-sm-9 col-sm-4 col-md-4 col-lg-4 ">
-            <br>
-            <button type="button" id="btnAdd" onclick="clientes.add();" class="btn btn-success">
-                Save
-            </button>
-            <button type="button" id="btnEdit" onclick="student.edit();" class="btn btn-warning">
-                Edit
-            </button>
-            <button type="button" id="btnDelete" onclick="student.delete();" class="btn btn-danger">
-                Delete
-            </button>
-        </div>
-        <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="form-group button-group col-sm-9 col-sm-4 col-md-4 col-lg-4 ">
+                    <br>
+                    <button type="button" id="btnAdd" onclick="clientes.add();" class="btn btn-success">
+                        Save
+                    </button>
+                    <button type="button" id="btnEdit" onclick="student.edit();" class="btn btn-warning">
+                        Edit
+                    </button>
+                    <button type="button" id="btnDelete" onclick="student.delete();" class="btn btn-danger">
+                        Delete
+                    </button>
+                </div>
+                <div class="clearfix"></div>
 
-    </fieldset>
-
-</form>
+            </fieldset>
+        </form>
     </div>
 </div>
 <div class="divider"></div>
 <div class="row">
     <div class="col-md-12">
-        <table class="table" id="tblStudent">
+        <table class="table" id="tblClientes">
             <thead>
             <tr>
                 <th>
-                    #
+                    id
                 </th>
                 <th>
-                    Student Name
+                    nombre
                 </th>
                 <th>
-                    Student Age
+                    telefono
+                </th>
+                <th>
+                    direccion
+                </th>
+                <th>
+                    rfc
+                </th>
+                <th>
+                    ver
                 </th>
             </tr>
             </thead>
@@ -144,6 +153,7 @@
 
             </tbody>
         </table>
+
     </div>
 </div>
 

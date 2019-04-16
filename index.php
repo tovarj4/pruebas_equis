@@ -144,6 +144,12 @@
     <link href="js/autocomplete/easy-autocomplete.min.css" rel="stylesheet">
     <link href="js/autocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
 
+<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+<script type="text/javascript" src="js/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/vfs_fonts.js"></script>
+<script type="text/javascript" src="js/datatables.min.js"></script>
+
+
     <script>
         $(document).on("focusout","#InputPostal",function(){
 

@@ -8,7 +8,7 @@
 include_once ("./clientes.class.php");
 $clientes = new  Clientes();
 
-/*
+
 if(isset($_GET['action'])){
 
     if($_GET['action'] == 1){
@@ -18,14 +18,24 @@ if(isset($_GET['action'])){
 
     }
     if($_GET['action']==2){
-        echo($clientes->getOne($_GET['id']));
+        $arr = $clientes->getOne($_GET['id']);
+        if(COUNT($arr) > 0 ){
+            $status = array("status"=>"OK");
+        }else{
+            $status = array("status"=>"FAIL");
+        }
+
+        $finalArray = array_merge($status,$arr);
+
+        //var_dump($finalArray);
+        echo(json_encode($finalArray));
     }
 
     if($_GET['action']==3){//get All
         echo($clientes->getAll());
     }
 }
-*/
+
 if(isset($_POST['action'])){
 
     if($_POST['action'] == 1){
@@ -35,9 +45,50 @@ if(isset($_POST['action'])){
 
     }
     if($_POST['action']==2){//get Single
-        echo($clientes->getOne($_POST['id']));
+        $arr = $clientes->getOne($_POST['id']);
+        if(COUNT($arr) > 0 ){
+            $status = array("status"=>"OK");
+        }else{
+            $status = array("status"=>"FAIL");
+        }
+
+        $finalArray = array_merge($status,$arr);
+        echo(json_encode($finalArray));
     }
     if($_POST['action']==3){//get All
-        echo($clientes->getAll());
+
+        $arr = $clientes->getAll();
+        $len = count($arr);
+
+        for ($i = 0; $i<$len;$i++){
+
+            if(($i%2) == 0){
+                echo "<tr  class='active'>";
+            }else{
+                echo "<tr  class='success'>";
+            }
+
+            echo "<td>";
+                echo $arr[$i]['id'];
+            echo "</td>";
+
+            echo "<td>";
+                echo $arr[$i]['nombre'];
+            echo "</td>";
+            echo "<td>";
+                echo $arr[$i]['telefono'];
+            echo "</td>";
+            echo "<td>";
+                echo $arr[$i]['direccion'];
+            echo "</td>";
+            echo "<td>";
+                echo $arr[$i]['rfc'];
+            echo "</td>";
+
+            echo "<td><a  class='btn ' href='javascript:clientes.getOne(".$arr[$i]['id'].");'><span style=\"font-size:25px;\" class=\"glyphicon glyphicon-sunglasses\" aria-hidden=\"true\"></span></a></td>";
+
+            echo "</tr>";
+
+        }
     }
 }
