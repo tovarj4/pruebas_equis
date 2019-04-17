@@ -13,8 +13,8 @@ class Clientes extends db_core implements Crud
                       ." VALUES(:nombre, :telefono, :direccion,:codigoPostal, :personaContacto, :email, :rfc, :razonSocial,:status);";
     private $sqlSelect= "SELECT id,id_cp,nombre, telefono,direccion,codigo_postal,colonia,municipio,estado,persona_contacto,rfc,razon_social,email,status FROM vw_clientes";
     private $sqlSelectMin="SELECT id,nombre,telefono, direccion,rfc FROM vw_clientes;";
-    private $sqlUpdate="UPDATE clientes SET nombre = :nombre,telefono = :telefono, direccion = :direccion, id_codigo_postal =:codigo_postal, email = :email, rfc = :rfc, razon_social = :razon_social WHERE id =:id";
-    private $sqlDisable="UPDATE clientes SET status =:id_status WHERE id =:id";
+    private $sqlUpdate="UPDATE clientes SET nombre = :nombre,telefono = :telefono, direccion = :direccion, id_codigo_postal =:codigoPostal, email = :email,persona_contacto= :personaContacto, rfc = :rfc, razon_social = :razonSocial WHERE id =:id";
+    private $sqlDisable="UPDATE clientes SET id_status =:status WHERE id =:id";
 
     public function setNew(
         $nombre,$telefono,$direccion,$codigoPostal,$personaContacto,$email,$rfc,$razonSocial,$status
@@ -27,11 +27,21 @@ class Clientes extends db_core implements Crud
     public function setUpdate(
         $id,$nombre,$telefono,$direccion,$codigoPostal,$personaContacto,$email,$rfc,$razonSocial,$status
     ){
-        $this->cliente = new clientes_model($nombre,$telefono,$direccion,$codigoPostal,'','','',$personaContacto,$email,$rfc,$razonSocial,$status);
+        $clientes = new clientes_model();
+        $this->cliente = $clientes->new($nombre,$telefono,$direccion,$codigoPostal,'','','',$personaContacto,$email,$rfc,$razonSocial,$status);
         //$this->cliente = $clientes->new($nombre,$telefono,$direccion,$codigoPostal,'','','',$personaContacto,$email,$rfc,$razonSocial,$status);
-        $this->cliente.setId($id);
-        $this->clienteArray =  $this->cliente->objectToArray();
+        $clientes->setId($id);
+        $this->clienteArray = $clientes->objectToArrayUpdate();
         return $this->update();
+    }
+    public function setDisable(
+        $id,$status
+    ){
+        $clientes = new clientes_model();
+        $this->cliente = $clientes->new('','','','','','','','','','','',$status);
+        $clientes->setId($id);
+        $this->clienteArray =  $clientes->objectToArrayDisable();
+        return $this->delete();
     }
 
     public function  getOne($id){
@@ -63,14 +73,21 @@ class Clientes extends db_core implements Crud
         if ($this->dbResult){
             $arrRes = array("status"=>"OK");
         }else{
-            $arrRes = array("status"=>"FAIL");
+            $arrRes = array("status"=>"FAIL",$this->sqlUpdate."  ". json_encode($this->clienteArray));
         }
         return $arrRes;
     }
 
     public function delete()
     {
-        // TODO: Implement delete() method.
+        $this->executeQuery($this->sqlDisable,$this->clienteArray,false);
+
+        if ($this->dbResult){
+            $arrRes = array("status"=>"OK");
+        }else{
+            $arrRes = array("status"=>"FAIL");
+        }
+        return $arrRes;
     }
 
     public function selectSingle()

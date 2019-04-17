@@ -52,17 +52,17 @@ class clientes_model extends CommonFunctions
 
     public function objectToArray(){
              $array = array(
-                 "Id" => $this->id,
-                 "Nombre" => $this->nombre,
-                 "Telefono" => $this->telefono,
-                 "Direccion" => $this->direccion,
-                 "Codigo_Postal" => $this->codigoPostal,
-                 "Colonia" => $this->colonia,
-                 "Estado" => $this->estado,
-                 "Municipio" => $this->municipio,
-                 "Persona_Contacto" => $this->personaContacto,
-                 "Email" => $this->email,
-                 "Status" => $this->status
+                 ":id" => $this->id,
+                 ":nombre" => $this->nombre,
+                 ":telefono" => $this->telefono,
+                 ":direccion" => $this->direccion,
+                 ":codigo_Postal" => $this->codigoPostal,
+                 ":colonia" => $this->colonia,
+                 ":estado" => $this->estado,
+                 ":municipio" => $this->municipio,
+                 ":persona_Contacto" => $this->personaContacto,
+                 ":email" => $this->email,
+                 ":status" => $this->status
              );
              return $array;
     }
@@ -77,6 +77,27 @@ class clientes_model extends CommonFunctions
             ":email" => $this->email,
             ":rfc" => $this->rfc,
             ":razonSocial" => $this->razonSocial,
+            ":status" => $this->status
+        );
+        return $array;
+    }
+    public function objectToArrayUpdate(){
+        $array = array(
+            ":nombre" => $this->nombre,
+            ":telefono" => $this->telefono,
+            ":direccion" => $this->direccion,
+            ":codigoPostal" => $this->codigoPostal,
+            ":personaContacto" => $this->personaContacto,
+            ":email" => $this->email,
+            ":rfc" => $this->rfc,
+            ":razonSocial" => $this->razonSocial,
+            ":id" => $this->id
+        );
+        return $array;
+    }
+    public function objectToArrayDisable(){
+        $array = array(
+            ":id" => $this->id,
             ":status" => $this->status
         );
         return $array;
