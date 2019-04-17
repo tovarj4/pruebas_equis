@@ -22,10 +22,12 @@
     <link href="css/tem.style.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweet-alert.css"/>
-
+    <script src="js/jquery.min.js"></script
     <link href="css/bootstrap3.3.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="js/bootstrap3.3.min.js"></script>
-
+    <script type="javascript">
+        $("#menu").hide();
+    </script>
 </head>
 <body>
 <header>
@@ -92,7 +94,7 @@
                     Dropdown
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="menu">
                     <li class="dropdown-header">Ordenes de Servicio</li>
                     <li class="active"><a href="#">Levantamineto</a></li>
                     <li><a href="#">Cotizacion</a></li>
@@ -101,7 +103,7 @@
 
 
                     <li class="dropdown-header">Catalogos</li>
-                    <li><a href="#" onclick="javascript: clientes.show();">Clientes</a></li>
+                    <li><a href="#" onclick="javascript: clientes.get();">Clientes</a></li>
                     <li><a href="#">Empleados</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li role="separator" class="divider"></li>
@@ -135,7 +137,7 @@
         </div>
     </div>
 </div>
-    <script src="js/jquery.min.js"></script>
+    >
     <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sweet-alert.js"></script>
@@ -152,14 +154,10 @@
 
     <script>
         $(document).on("focusout","#InputPostal",function(){
-
             domicilios.loadMunicipios();
             domicilios.loadColonias();
-
-
-
         });
-
+        Document.getElementById("menu").disabled = false;
     </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="row">
-        <button class="btn btn-primary " onclick="javascript:clientes.showfrm(1);">Nuevo <span class="glyphicon glyphicon-floppy-disk"></span> </button>
+        <button class="btn btn-primary " onclick="javascript:common.showfrm({'form':'frm_clientes','table':'tblClientes','btn':1});">Nuevo <span class="glyphicon glyphicon-floppy-disk"></span> </button>
         <form role="form" class="center" id="frm_clientes">
             <legend>Clientes</legend>
             <fieldset>
@@ -105,16 +105,23 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div class="form-group button-group col-sm-9 col-sm-4 col-md-4 col-lg-4 ">
+                <div class="form-group button-group col-sm-9 col-sm-4 col-md-5 col-lg-5 ">
                     <br>
-                    <button type="button" id="btnAdd" onclick="clientes.add();" class="btn btn-success">
-                        Save
+                    <button type="button" id="btnCan" onclick="javascript:clientes.get();" class="btn btn-warning">
+                        Cancelar
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
                     </button>
-                    <button type="button" id="btnEdit" onclick="clientes.edit();" class="btn btn-warning">
-                        Edit
+                    <button type="button" id="btnAdd" onclick="clientes.add();" class="btn btn-success">
+                        Guardar
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                    </button>
+                    <button type="button" id="btnEdit" onclick="clientes.edit();" class="btn btn-info">
+                        Editar
+                        <span class="glyphicon glyphicon-pencil"></span>
                     </button>
                     <button type="button" id="btnDelete" onclick="clientes.delete();" class="btn btn-danger">
-                        Delete
+                        Eliminar
+                        <span class="glyphicon glyphicon-remove.circle"></span>
                     </button>
                 </div>
                 <div class="clearfix"></div>

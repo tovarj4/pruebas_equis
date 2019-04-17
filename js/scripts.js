@@ -85,7 +85,6 @@ var clientes =
 
         },//showfrm
         show: function () {
-            $("#content").empty().load("./views/clientes_view.html");
             this.get();
         },//show
         get: function () {
@@ -96,7 +95,8 @@ var clientes =
                     url: "class/clientes/clientes.fn.php",
                     type: "post",
                     beforeSend: function(){
-
+                        $("#content").empty().load("./views/clientes_view.html");
+                        $("#frm_clientes").hide();
                     }
                     ,
                     success: function (response) {
@@ -126,7 +126,8 @@ var clientes =
                 type: "post",
                 dataType: "json",
                 beforeSend: function(){
-                    clientes.showfrm(2);
+                    //clientes.showfrm(2);
+                    common.showfrm({"form":"frm_clientes","table":"tblClientes","btn":2})
                 },
                 success: function (response) {
                     if(response.status == 'OK'){
@@ -218,11 +219,11 @@ var clientes =
                         if (response.status == 'OK') {
                             swal("Success!", "Cliente Modificado", "success");
                         } else {
-                            swal("Error!", 'Something wrong happen...', "error");
+                            swal("Error!", 'No se pudo realizar el cambio...', "error");
                         }
                     },
                     complete: function(){
-                        clientes.getOne(params.id);
+                        clientes.get();
                     },
                     error: function (xhr, tStatus, err) {
                         swal("", tStatus + " --- " + xhr.responseText, "error");
@@ -246,7 +247,7 @@ var clientes =
                         if (response.status == 'OK') {
                             swal("Success!", "Cliente Deshabilitado", "info");
                         } else {
-                            swal("Error!", 'No se pudo actualizar el cliente...', "error");
+                            swal("Error!", 'No se pudo realizar el cambio...', "error");
                         }
                     },
                     complete: function(){
@@ -259,54 +260,78 @@ var clientes =
                 });
         }//delete
     }
+
 const common = {
     /**********************/
     createDataTable: function (id, rows) {
         rows = typeof rows !== 'undefined' ? rows : 5;
-        var table = $(id).DataTable({
-            //"autoWidth": false,
-            "pageLength": rows,
-            "pagingType": "full",
-            "info": true,
-            "lengthChange": false,
-            "searching": true,
-            "dom": "<pi<t>>",
-           /*
-            "fnInfoCallback": function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-                var o = this.fnPagingInfo();
-                return "Página " + (o.iPage + 1) + " de " + o.iTotalPages;
-            },*/
-            "initComplete": function () {
-                $(this).children('tbody').on('click', 'tr', function () {
-                    if ($(this).hasClass('active')) {
-                        $(this).removeClass('active');
-                    } else {
-                        table.$('tr.active').removeClass('active');
-                        $(this).addClass('active');
+        var table;
+        if ( $.fn.dataTable.isDataTable(id) ) {
+            table = $(id).DataTable();
+        }
+        else {
+            table = $(id).DataTable({
+                //"autoWidth": false,
+                "pageLength": rows,
+                "pagingType": "full",
+                "info": true,
+                "lengthChange": false,
+                "searching": true,
+                "dom": "<pi<t>>",
+                /*
+                 "fnInfoCallback": function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
+                     var o = this.fnPagingInfo();
+                     return "Página " + (o.iPage + 1) + " de " + o.iTotalPages;
+                 },*/
+                "initComplete": function () {
+                    $(this).children('tbody').on('click', 'tr', function () {
+                        if ($(this).hasClass('active')) {
+                            $(this).removeClass('active');
+                        } else {
+                            table.$('tr.active').removeClass('active');
+                            $(this).addClass('active');
+                        }
+                    });
+                },
+                "columnDefs": [{
+                    "targets": "no-sort",
+                    "orderable": false
+                }],
+                "language": {
+                    "emptyTable": "No hay datos para mostrar en la tabla.",
+                    "info": "Mostrando de _START_ a _END_ de _TOTAL_ registros",
+                    "infoEmpty": "Mostrando de 0 a 0 de 0 registros",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "zeroRecords": "No hay registros relacionados",
+                    "lengthMenu": "Mostrar _MENU_ registros",
+                    "search": "Buscar:",
+                    "paginate": {
+                        "first": '<i class="fa fa-fast-backward"></i>',
+                        "last": '<i class="fa fa-fast-forward"></i>',
+                        "next": '<i class="fa fa-forward"></i>',
+                        "previous": '<i class="fa fa-backward"></i>'
                     }
-                });
-            },
-            "columnDefs": [{
-                "targets": "no-sort",
-                "orderable": false
-            }],
-            "language": {
-                "emptyTable": "No hay datos para mostrar en la tabla.",
-                "info": "Mostrando de _START_ a _END_ de _TOTAL_ registros",
-                "infoEmpty": "Mostrando de 0 a 0 de 0 registros",
-                "loadingRecords": "Cargando...",
-                "processing": "Procesando...",
-                "zeroRecords": "No hay registros relacionados",
-                "lengthMenu": "Mostrar _MENU_ registros",
-                "search": "Buscar:",
-                "paginate": {
-                    "first": '<i class="fa fa-fast-backward"></i>',
-                    "last": '<i class="fa fa-fast-forward"></i>',
-                    "next": '<i class="fa fa-forward"></i>',
-                    "previous": '<i class="fa fa-backward"></i>'
                 }
-            }
-        });
+            });
+        }
+
+    },//createDataTable
+    showfrm: function (opt) {
+
+        $("#"+opt.form).show();
+        $("#"+opt.table).hide();
+
+        if(opt.btn==1){
+            $("#btnAdd").show();
+            $("#btnEdit").hide();
+            $("#btnDelete").hide();
+        }else if(opt.btn==2){
+            $("#btnAdd").hide();
+            $("#btnEdit").show();
+            $("#btnDelete").show();
+        }
+
     }
 
     /**********************/
