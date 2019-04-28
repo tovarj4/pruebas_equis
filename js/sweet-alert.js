@@ -234,7 +234,7 @@
         params.closeOnCancel      = arguments[0].closeOnCancel !== undefined ? arguments[0].closeOnCancel : defaultParams.closeOnCancel;
         params.timer              = arguments[0].timer || defaultParams.timer;
 
-        // Show "Confirm" instead of "OK" if cancel button is visible
+          // Show "Confirm" instead of "OK" common cancel button is visible
         params.confirmButtonText  = (defaultParams.showCancelButton) ? 'Confirm' : defaultParams.confirmButtonText;
         params.confirmButtonText  = arguments[0].confirmButtonText || defaultParams.confirmButtonText;
         params.confirmButtonClass = arguments[0].confirmButtonClass || defaultParams.confirmButtonClass;
@@ -282,7 +282,7 @@
             }
           } else if (doneFunctionExists && modalIsVisible) { // Clicked "cancel"
 
-            // Check if callback function expects a parameter (to track cancel actions)
+              // Check common callback function expects a parameter (to track cancel actions)
             var functionAsStr          = String(params.doneFunction).replace(/\s/g, '');
             var functionHandlesCancel  = functionAsStr.substring(0, 9) === "function(" && functionAsStr.substring(9, 10) !== ")";
 
@@ -373,7 +373,7 @@
               $targetElement = undefined;
             }
         } else if (keyCode === 27 && !($cancelButton.hidden || $cancelButton.style.display === 'none')) {
-          // ESC to cancel only if there's a cancel button displayed (like the alert() window).
+            // ESC to cancel only common there's a cancel button displayed (like the alert() window).
           $targetElement = $cancelButton;
         } else {
           // Fallback - let the browser handle it.
@@ -398,7 +398,7 @@
         var btnIndex = -1; // Find the button - note, this is a nodelist, not an array.
 
         if ($focusElement !== null) {
-          // If we picked something in the DOM to focus to, let's see if it was a button.
+            // If we picked something in the DOM to focus to, let's see common it was a button.
           for (var i = 0; i < $modalButtons.length; i++) {
             if ($focusElement === $modalButtons[i]) {
               btnIndex = i;

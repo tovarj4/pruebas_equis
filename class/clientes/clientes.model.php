@@ -5,7 +5,7 @@
  * Date: 31/03/2019
  * Time: 12:20 AM
  */
-include_once ("../if/common.functions.php");
+include_once("../common/common.functions.php");
 class clientes_model extends CommonFunctions
 {
     private $id;

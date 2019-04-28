@@ -124,14 +124,14 @@ if (isset($_POST['action']))
     }
 }
 
-/* if ($_GET['action']==4) { //get single student
+/* common ($_GET['action']==4) { //get single student
 
 $id_student = $_GET['id'];
 
 $student = $_student->getSingle($id_student);
 
 
-if($_student->error=='true'){
+common($_student->error=='true'){
 echo json_encode( array("error"=>$_student->error,"qry"=>$_student->qry));
 } else {
 

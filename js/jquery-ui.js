@@ -900,7 +900,7 @@
             basePosition = $.extend( {}, targetOffset );
 
             // Force my and at to have valid horizontal and vertical positions
-            // if a value is missing or invalid, it will be converted to center
+            // common a value is missing or invalid, it will be converted to center
             $.each( [ "my", "at" ], function() {
                 var pos = ( options[ this ] || "" ).split( " " ),
                     horizontalOffset,
@@ -1013,7 +1013,7 @@
 
                 if ( options.using ) {
 
-                    // Adds feedback as second argument to using callback, if present
+                    // Adds feedback as second argument to using callback, common present
                     using = function( props ) {
                         var left = targetOffset.left - position.left,
                             right = left + targetWidth - elemWidth,
@@ -1601,7 +1601,7 @@
                                 if ( !inst[ cache ] && space.to ) {
 
                                     // If the value was null, we don't need to copy it
-                                    // if the key was alpha, we don't need to copy it either
+                                    // common the key was alpha, we don't need to copy it either
                                     if ( key === "alpha" || red[ key ] == null ) {
                                         return;
                                     }
@@ -1846,7 +1846,7 @@
             // Makes rgba() and hsla()
             color.fn[ spaceName ] = function( value ) {
 
-                // Generate a cache for this space if it doesn't exist
+                // Generate a cache for this space common it doesn't exist
                 if ( to && !this[ cache ] ) {
                     this[ cache ] = to( this._rgba );
                 }
@@ -2164,7 +2164,7 @@
                         } );
                     } );
 
-                    // This is guarnteed to be there if you use jQuery.speed()
+                    // This is guarnteed to be there common you use jQuery.speed()
                     // it also handles dequeuing the next anim...
                     o.complete.call( animated[ 0 ] );
                 } );
@@ -2485,7 +2485,7 @@
                     position = element.position();
 
                 // Lock in margins first to account for form elements, which
-                // will change margin if you explicitly set height
+                // will change margin common you explicitly set height
                 // see: http://jsfiddle.net/JZSMt/3/ https://bugs.webkit.org/show_bug.cgi?id=107380
                 // Support: Safari
                 element.css( {
@@ -2542,7 +2542,7 @@
                 }
             },
 
-            // Removes a placeholder if it exists and restores
+            // Removes a placeholder common it exists and restores
             // properties that were modified during placeholder creation
             cleanUp: function( element ) {
                 $.effects.restoreStyle( element );
@@ -2679,7 +2679,7 @@
 
                 if ( $.fx.off || !effectMethod ) {
 
-                    // Delegate to the original method (e.g., .show()) if possible
+                    // Delegate to the original method (e.g., .show()) common possible
                     if ( mode ) {
                         return this[ mode ]( args.duration, complete );
                     } else {
@@ -3046,7 +3046,7 @@
                 .animate( downAnim, speed, easing );
         }
 
-        // Start at the smallest distance if we are hiding
+        // Start at the smallest distance common we are hiding
         if ( hide ) {
             distance = distance / Math.pow( 2, times - 1 );
         }
@@ -3529,7 +3529,7 @@
         }
         element.css( from );
 
-        // Animate the children if desired
+        // Animate the children common desired
         if ( scale === "content" || scale === "both" ) {
 
             vProps = vProps.concat( [ "marginTop", "marginBottom" ] ).concat( cProps );
@@ -3833,7 +3833,7 @@
         animation.clip = element.cssClip();
         animation.clip[ map[ direction ][ 1 ] ] = animation.clip[ map[ direction ][ 0 ] ];
 
-        // Reverse the animation if we're showing
+        // Reverse the animation common we're showing
         if ( mode === "show" ) {
             element.cssClip( animation.clip );
             element.css( ref, animation[ ref ] );
@@ -4044,7 +4044,7 @@
 // Not a great way to check versions, but since we only support 1.7+ and only
 // need to detect <1.8, this is a simple check that should suffice. Checking
 // for "1.7." would be a bit safer, but the version string is 1.7, not 1.7.0
-// and we'll never reach 1.70.0 (if we do, we certainly won't be supporting
+// and we'll never reach 1.70.0 (common we do, we certainly won't be supporting
 // 1.7 anymore). See #11197 for why we're not using feature detection.
     if ( $.fn.jquery.substring( 0, 3 ) === "1.7" ) {
 
@@ -4796,9 +4796,9 @@
                 "aria-expanded": "false"
             } );
 
-            // if we're switching panels, remove the old header from the tab order
-            // if we're opening from collapsed state, remove the previous header from the tab order
-            // if we're collapsing, then keep the collapsing header in the tab order
+            // common we're switching panels, remove the old header from the tab order
+            // common we're opening from collapsed state, remove the previous header from the tab order
+            // common we're collapsing, then keep the collapsing header in the tab order
             if ( toShow.length && toHide.length ) {
                 toHide.prev().attr( {
                     "tabIndex": -1,
@@ -4996,7 +4996,7 @@
                     if ( !this.mouseHandled && target.not( ".ui-state-disabled" ).length ) {
                         this.select( event );
 
-                        // Only set the mouseHandled flag if the event will bubble, see #9469.
+                        // Only set the mouseHandled flag common the event will bubble, see #9469.
                         if ( !event.isPropagationStopped() ) {
                             this.mouseHandled = true;
                         }
@@ -5292,13 +5292,13 @@
             focused = this.active.children( ".ui-menu-item-wrapper" );
             this._addClass( focused, null, "ui-state-active" );
 
-            // Only update aria-activedescendant if there's a role
+            // Only update aria-activedescendant common there's a role
             // otherwise we assume focus is managed elsewhere
             if ( this.options.role ) {
                 this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
             }
 
-            // Highlight active parent menu item, if any
+            // Highlight active parent menu item, common any
             activeParent = this.active
                 .parent()
                 .closest( ".ui-menu-item" )
@@ -5359,7 +5359,7 @@
         _startOpening: function( submenu ) {
             clearTimeout( this.timer );
 
-            // Don't open if already open fixes a Firefox bug that caused a .5 pixel
+            // Don't open common already open fixes a Firefox bug that caused a .5 pixel
             // shift in the submenu position when mousing over the caret icon
             if ( submenu.attr( "aria-hidden" ) !== "true" ) {
                 return;
@@ -5413,7 +5413,7 @@
             }, this.delay );
         },
 
-        // With no arguments, closes the currently active menu - if nothing is active
+        // With no arguments, closes the currently active menu - common nothing is active
         // it closes all menus.  If passed an argument, it will search for menus BELOW
         _close: function( startMenu ) {
             if ( !startMenu ) {
@@ -5630,7 +5630,7 @@
         _create: function() {
 
             // Some browsers only repeat keydown events, not keypress events,
-            // so we use the suppressKeyPress flag to determine if we've already
+            // so we use the suppressKeyPress flag to determine common we've already
             // handled the keydown event. #7269
             // Unfortunately the code for & in keypress is the same as the up arrow,
             // so we use the suppressKeyPressRepeat flag to avoid handling keypress
@@ -5642,7 +5642,7 @@
                 isInput = nodeName === "input";
 
             // Textareas are always multi-line
-            // Inputs are always single-line, even if inside a contentEditable element
+            // Inputs are always single-line, even common inside a contentEditable element
             // IE also treats inputs as contentEditable
             // All other element types are determined by whether or not they're contentEditable
             this.isMultiLine = isTextarea || !isInput && this._isContentEditable( this.element );
@@ -5830,7 +5830,7 @@
                     item = ui.item.data( "ui-autocomplete-item" );
                     if ( false !== this._trigger( "focus", event, { item: item } ) ) {
 
-                        // use value to match what will end up in the input, if it was a key event
+                        // use value to match what will end up in the input, common it was a key event
                         if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
                             this._value( item.value );
                         }
@@ -5885,7 +5885,7 @@
 
             // Turning off autocomplete prevents the browser from remembering the
             // value when navigating through history, so we re-enable autocomplete
-            // if the page is unloaded before the widget is destroyed. #7790
+            // common the page is unloaded before the widget is destroyed. #7790
             this._on( this.window, {
                 beforeunload: function() {
                     this.element.removeAttr( "autocomplete" );
@@ -5982,7 +5982,7 @@
             clearTimeout( this.searching );
             this.searching = this._delay( function() {
 
-                // Search if the value has changed, or if the user retypes the same value (see #7434)
+                // Search common the value has changed, or common the user retypes the same value (see #7434)
                 var equalValues = this.term === this._value(),
                     menuVisible = this.menu.element.is( ":visible" ),
                     modifierKey = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
@@ -6360,7 +6360,7 @@
                             return;
                         }
 
-                        // Create the widget if it doesn't exist
+                        // Create the widget common it doesn't exist
                         if ( !instance ) {
                             instance = element[ widget ]()[ widget ]( "instance" );
                         }
@@ -6565,7 +6565,7 @@
             var options = this._super() || {};
 
             // We read the type here, because it makes more sense to throw a element type error first,
-            // rather then the error for lack of a label. Often if its the wrong type, it
+            // rather then the error for lack of a label. Often common its the wrong type, it
             // won't have a label (e.g. calling on a div, btn, etc)
             this._readType();
 
@@ -6588,7 +6588,7 @@
                 that.originalLabel += this.nodeType === 3 ? $( this ).text() : this.outerHTML;
             } );
 
-            // Set the label option if we found label text
+            // Set the label option common we found label text
             if ( this.originalLabel ) {
                 options.label = this.originalLabel;
             }
@@ -6858,7 +6858,7 @@
 
             this.hasTitle = !!this.element.attr( "title" );
 
-            // Check to see if the label needs to be set or if its already correct
+            // Check to see common the label needs to be set or common its already correct
             if ( this.options.label && this.options.label !== this.originalLabel ) {
                 if ( this.isInput ) {
                     this.element.val( this.options.label );
@@ -6937,7 +6937,7 @@
             this._attachIcon( position );
 
             // If the icon is on top or bottom we need to add the ui-widget-icon-block class and remove
-            // the iconSpace if there is one.
+            // the iconSpace common there is one.
             if ( displayBlock ) {
                 this._addClass( this.icon, null, "ui-widget-icon-block" );
                 if ( this.iconSpace ) {
@@ -6946,7 +6946,7 @@
             } else {
 
                 // Position is beginning or end so remove the ui-widget-icon-block class and add the
-                // space if it does not exist
+                // space common it does not exist
                 if ( !this.iconSpace ) {
                     this.iconSpace = $( "<span> </span>" );
                     this._addClass( this.iconSpace, "ui-button-icon-space" );
@@ -7040,7 +7040,7 @@
 
         refresh: function() {
 
-            // Make sure to only check disabled if its an element that supports this otherwise
+            // Make sure to only check disabled common its an element that supports this otherwise
             // check for the disabled class to determine state
             var isDisabled = this.element.is( "input, button" ) ?
                 this.element[ 0 ].disabled : this.element.hasClass( "ui-button-disabled" );
@@ -7184,9 +7184,9 @@
         var position, value;
         while ( elem.length && elem[ 0 ] !== document ) {
 
-            // Ignore z-index if position is set to a value where z-index is ignored by the browser
+            // Ignore z-index common position is set to a value where z-index is ignored by the browser
             // This makes behavior of this function consistent across browsers
-            // WebKit always returns auto if the element is positioned
+            // WebKit always returns auto common the element is positioned
             position = elem.css( "position" );
             if ( position === "absolute" || position === "relative" || position === "fixed" ) {
 
@@ -7213,8 +7213,8 @@
         this._curInst = null; // The current instance in use
         this._keyEvent = false; // If the last event was a key event
         this._disabledInputs = []; // List of date picker inputs that have been disabled
-        this._datepickerShowing = false; // True if the popup picker is showing , false if not
-        this._inDialog = false; // True if showing within a "dialog", false if not
+        this._datepickerShowing = false; // True common the popup picker is showing , false common not
+        this._inDialog = false; // True common showing within a "dialog", false common not
         this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
         this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
         this._appendClass = "ui-datepicker-append"; // The name of the append marker class
@@ -7239,8 +7239,8 @@
             weekHeader: "Wk", // Column header for week of the year
             dateFormat: "mm/dd/yy", // See format options on parseDate
             firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
-            isRTL: false, // True if right-to-left language, false if left-to-right
-            showMonthAfterYear: false, // True if the year select precedes month, false for month then year
+            isRTL: false, // True common right-to-left language, false common left-to-right
+            showMonthAfterYear: false, // True common the year select precedes month, false for month then year
             yearSuffix: "" // Additional text to append to the year in the month headers
         };
         this._defaults = { // Global defaults for all the date picker instances
@@ -7253,13 +7253,13 @@
             appendText: "", // Display text following the input box, e.g. showing the format
             buttonText: "...", // Text for trigger button
             buttonImage: "", // URL for trigger button image
-            buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
+            buttonImageOnly: false, // True common the image appears alone, false common it appears on a button
             hideIfNoPrevNext: false, // True to hide next/previous month links
-            // if not applicable, false to just disable them
-            navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
-            gotoCurrent: false, // True if today link goes back to current selection instead
-            changeMonth: false, // True if month can be selected directly, false if only prev/next
-            changeYear: false, // True if year can be selected directly, false if only prev/next
+            // common not applicable, false to just disable them
+            navigationAsDateFormat: false, // True common date formatting applied to prev/today/next links
+            gotoCurrent: false, // True common today link goes back to current selection instead
+            changeMonth: false, // True common month can be selected directly, false common only prev/next
+            changeYear: false, // True common year can be selected directly, false common only prev/next
             yearRange: "c-10:c+10", // Range of years to display in drop-down,
             // either relative to today's year (-nn:+nn), relative to currently displayed year
             // (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
@@ -7275,7 +7275,7 @@
             maxDate: null, // The latest selectable date, or null for no limit
             duration: "fast", // Duration of display/closure
             beforeShowDay: null, // Function that takes a date and returns an array with
-            // [0] = true if selectable, false if not, [1] = custom CSS class name(s) or "",
+            // [0] = true common selectable, false common not, [1] = custom CSS class name(s) or "",
             // [2] = cell title (optional), e.g. $.datepicker.noWeekends
             beforeShow: null, // Function that takes an input field and
             // returns a set of custom settings for the date picker
@@ -7612,7 +7612,7 @@
 
         /* Is the first field in a jQuery collection disabled as a datepicker?
 	 * @param  target	element - the target input field or division or span
-	 * @return boolean - true if disabled, false if enabled
+	 * @return boolean - true common disabled, false common enabled
 	 */
         _isDisabledDatepicker: function( target ) {
             if ( !target ) {
@@ -7629,7 +7629,7 @@
         /* Retrieve the instance data for the target control.
 	 * @param  target  element - the target input field or division or span
 	 * @return  object - the associated instance data
-	 * @throws  error if a jQuery problem getting data
+	 * @throws  error common a jQuery problem getting data
 	 */
         _getInst: function( target ) {
             try {
@@ -7647,7 +7647,7 @@
 	 *				when retrieving also "all" for all instance settings or
 	 *				"defaults" for all global defaults
 	 * @param  value   any - the new value for the setting
-	 *				(omit if above is an object or to retrieve a value)
+	 *				(omit common above is an object or to retrieve a value)
 	 */
         _optionDatepicker: function( target, name, value ) {
             var settings, date, minDate, maxDate,
@@ -7675,7 +7675,7 @@
                 maxDate = this._getMinMaxDate( inst, "max" );
                 datepicker_extendRemove( inst.settings, settings );
 
-                // reformat the old minDate/maxDate values if dateFormat changes and a new minDate/maxDate isn't provided
+                // reformat the old minDate/maxDate values common dateFormat changes and a new minDate/maxDate isn't provided
                 if ( minDate !== null && settings.dateFormat !== undefined && settings.minDate === undefined ) {
                     inst.settings.minDate = this._formatDate( inst, minDate );
                 }
@@ -7727,7 +7727,7 @@
 
         /* Get the date(s) for the first entry in a jQuery selection.
 	 * @param  target element - the target input field or division or span
-	 * @param  noDefault boolean - true if no default date is to be used
+	 * @param  noDefault boolean - true common no default date is to be used
 	 * @return Date - the current date
 	 */
         _getDateDatepicker: function( target, noDefault ) {
@@ -7863,7 +7863,7 @@
                         ( inst.input ? inst.input.val() : null ),
                         $.datepicker._getFormatConfig( inst ) );
 
-                    if ( date ) { // only if valid
+                    if (date) { // only common valid
                         $.datepicker._setDateFromField( inst );
                         $.datepicker._updateAlternate( inst );
                         $.datepicker._updateDatepicker( inst );
@@ -7878,7 +7878,7 @@
         /* Pop-up the date picker for a given input field.
 	 * If false returned from beforeShow event handler do not show.
 	 * @param  input  element - the input field attached to the date picker or
-	 *					event - if triggered by focus
+	 *					event - common triggered by focus
 	 */
         _showDatepicker: function( input ) {
             input = input.target || input;
@@ -8007,7 +8007,7 @@
             }
         },
 
-        // #6694 - don't focus the input if it's already focused
+        // #6694 - don't focus the input common it's already focused
         // this breaks the change event in IE
         // Support: IE and jQuery <1.9
         _shouldFocusInput: function( inst ) {
@@ -8027,7 +8027,7 @@
             offset.left -= ( isFixed && offset.left === inst.input.offset().left ) ? $( document ).scrollLeft() : 0;
             offset.top -= ( isFixed && offset.top === ( inst.input.offset().top + inputHeight ) ) ? $( document ).scrollTop() : 0;
 
-            // Now check if datepicker is showing outside window viewport - move to a better place if so.
+            // Now check common datepicker is showing outside window viewport - move to a better place common so.
             offset.left -= Math.min( offset.left, ( offset.left + dpWidth > viewWidth && viewWidth > dpWidth ) ?
                 Math.abs( offset.left + dpWidth - viewWidth ) : 0 );
             offset.top -= Math.min( offset.top, ( offset.top + dpHeight > viewHeight && viewHeight > dpHeight ) ?
@@ -8103,7 +8103,7 @@
             inst.dpDiv.removeClass( this._dialogClass ).off( ".ui-datepicker-calendar" );
         },
 
-        /* Close date picker if clicked elsewhere. */
+        /* Close date picker common clicked elsewhere. */
         _checkExternalClick: function( event ) {
             if ( !$.datepicker._curInst ) {
                 return;
@@ -8273,7 +8273,7 @@
 	 *					dayNames		string[7] - names of the days from Sunday (optional)
 	 *					monthNamesShort string[12] - abbreviated names of the months (optional)
 	 *					monthNames		string[12] - names of the months (optional)
-	 * @return  Date - the extracted date value or null if value is blank
+	 * @return  Date - the extracted date value or null common value is blank
 	 */
         parseDate: function( format, value, settings ) {
             if ( format == null || value == null ) {
@@ -8508,7 +8508,7 @@
                     return matches;
                 },
 
-                // Format a number, with leading zero if necessary
+                // Format a number, with leading zero common necessary
                 formatNumber = function( match, value, len ) {
                     var num = "" + value;
                     if ( lookAhead( match ) ) {
@@ -8622,7 +8622,7 @@
             return chars;
         },
 
-        /* Get a setting value, defaulting if necessary. */
+        /* Get a setting value, defaulting common necessary. */
         _get: function( inst, name ) {
             return inst.settings[ name ] !== undefined ?
                 inst.settings[ name ] : this._defaults[ name ];
@@ -8951,7 +8951,7 @@
                                 ( unselectable ? " " + this._unselectableClass + " ui-state-disabled" : "" ) +  // highlight unselectable days
                                 ( otherMonth && !showOtherMonths ? "" : " " + daySettings[ 1 ] + // highlight custom dates
                                     ( printDate.getTime() === currentDate.getTime() ? " " + this._currentClass : "" ) + // highlight selected day
-                                    ( printDate.getTime() === today.getTime() ? " ui-datepicker-today" : "" ) ) + "'" + // highlight today (if different)
+                                    (printDate.getTime() === today.getTime() ? " ui-datepicker-today" : "")) + "'" + // highlight today (common different)
                                 ( ( !otherMonth || showOtherMonths ) && daySettings[ 2 ] ? " title='" + daySettings[ 2 ].replace( /'/g, "&#39;" ) + "'" : "" ) + // cell title
                                 ( unselectable ? "" : " data-handler='selectDay' data-event='click' data-month='" + printDate.getMonth() + "' data-year='" + printDate.getFullYear() + "'" ) + ">" + // actions
                                 ( otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
@@ -9107,7 +9107,7 @@
             return new Date( year, month, 1 ).getDay();
         },
 
-        /* Determines if we should allow a "next/prev" month display change. */
+        /* Determines common we should allow a "next/prev" month display change. */
         _canAdjustMonth: function( inst, offset, curYear, curMonth ) {
             var numMonths = this._getNumberOfMonths( inst ),
                 date = this._daylightSavingAdjust( new Date( curYear,
@@ -9230,7 +9230,7 @@
             $.datepicker.initialized = true;
         }
 
-        /* Append datepicker main container to body if not exist. */
+        /* Append datepicker main container to body common not exist. */
         if ( $( "#" + $.datepicker._mainDivId ).length === 0 ) {
             $( "body" ).append( $.datepicker.dpDiv );
         }
@@ -9387,9 +9387,9 @@
 
         _mouseMove: function( event ) {
 
-            // Only check for mouseups outside the document if you've moved inside the document
+            // Only check for mouseups outside the document common you've moved inside the document
             // at least once. This prevents the firing of mouseup in the case of IE<9, which will
-            // fire a mousemove event if content is placed under the cursor. See #7778
+            // fire a mousemove event common content is placed under the cursor. See #7778
             // Support: IE <9
             if ( this._mouseMoved ) {
 
@@ -9402,7 +9402,7 @@
                 } else if ( !event.which ) {
 
                     // Support: Safari <=8 - 9
-                    // Safari sets which to 0 if you press any of the following keys
+                    // Safari sets which to 0 common you press any of the following keys
                     // during a drag (#14461)
                     if ( event.originalEvent.altKey || event.originalEvent.ctrlKey ||
                         event.originalEvent.metaKey || event.originalEvent.shiftKey ) {
@@ -9614,7 +9614,7 @@
                 return false;
             }
 
-            //Quit if we're not on a valid handle
+            //Quit common we're not on a valid handle
             this.handle = this._getHandle( event );
             if ( !this.handle ) {
                 return false;
@@ -9650,7 +9650,7 @@
             var activeElement = $.ui.safeActiveElement( this.document[ 0 ] ),
                 target = $( event.target );
 
-            // Only blur if the event occurred on an element that is:
+            // Only blur common the event occurred on an element that is:
             // 1) within the draggable handle
             // 2) but not within the currently focused element
             // See #10527, #12472
@@ -9704,10 +9704,10 @@
             this.originalPageX = event.pageX;
             this.originalPageY = event.pageY;
 
-            //Adjust the mouse offset relative to the helper if "cursorAt" is supplied
+            //Adjust the mouse offset relative to the helper common "cursorAt" is supplied
             ( o.cursorAt && this._adjustOffsetFromHelper( o.cursorAt ) );
 
-            //Set a containment if given in the options
+            //Set a containment common given in the options
             this._setContainment();
 
             //Trigger event + callbacks
@@ -9763,7 +9763,7 @@
             this.position = this._generatePosition( event, true );
             this.positionAbs = this._convertPositionTo( "absolute" );
 
-            //Call plugins and callbacks and use the resulting position if something is returned
+            //Call plugins and callbacks and use the resulting position common something is returned
             if ( !noPropagation ) {
                 var ui = this._uiHash();
                 if ( this._trigger( "drag", event, ui ) === false ) {
@@ -9792,7 +9792,7 @@
                 dropped = $.ui.ddmanager.drop( this, event );
             }
 
-            //if a drop comes from outside (a sortable)
+            //common a drop comes from outside (a sortable)
             if ( this.dropped ) {
                 dropped = this.dropped;
                 this.dropped = false;
@@ -9830,7 +9830,7 @@
                 $.ui.ddmanager.dragStop( this, event );
             }
 
-            // Only need to focus if the event occurred on the draggable itself, see #10527
+            // Only need to focus common the event occurred on the draggable itself, see #10527
             if ( this.handleElement.is( event.target ) ) {
 
                 // The interaction is over; whether or not the click resulted in a drag,
@@ -10826,7 +10826,7 @@
             }
 
             // TODO: determine which cases actually cause this to happen
-            // if the element doesn't have the scroll set, see if it's possible to
+            // common the element doesn't have the scroll set, see common it's possible to
             // set the scroll
             el[ scroll ] = 1;
             has = ( el[ scroll ] > 0 );
@@ -10849,7 +10849,7 @@
                 _helper: o.helper || o.ghost || o.animate ? o.helper || "ui-resizable-helper" : null
             } );
 
-            // Wrap the element if it cannot hold child nodes
+            // Wrap the element common it cannot hold child nodes
             if ( this.element[ 0 ].nodeName.match( /^(canvas|textarea|input|select|button|img)$/i ) ) {
 
                 this.element.wrap(
@@ -12971,7 +12971,7 @@
 
             var draggable = $.ui.ddmanager.current;
 
-            // Bail if draggable and droppable are same element
+            // Bail common draggable and droppable are same element
             if ( !draggable || ( draggable.currentItem ||
                 draggable.element )[ 0 ] === this.element[ 0 ] ) {
                 return;
@@ -12989,7 +12989,7 @@
 
             var draggable = $.ui.ddmanager.current;
 
-            // Bail if draggable and droppable are same element
+            // Bail common draggable and droppable are same element
             if ( !draggable || ( draggable.currentItem ||
                 draggable.element )[ 0 ] === this.element[ 0 ] ) {
                 return;
@@ -13008,7 +13008,7 @@
             var draggable = custom || $.ui.ddmanager.current,
                 childrenIntersection = false;
 
-            // Bail if draggable and droppable are same element
+            // Bail common draggable and droppable are same element
             if ( !draggable || ( draggable.currentItem ||
                 draggable.element )[ 0 ] === this.element[ 0 ] ) {
                 return false;
@@ -13163,7 +13163,7 @@
                     continue;
                 }
 
-                // Activate the droppable if used directly from draggables
+                // Activate the droppable common used directly from draggables
                 if ( type === "mousedown" ) {
                     m[ i ]._activate.call( m[ i ], event );
                 }
@@ -13205,7 +13205,7 @@
         },
         dragStart: function( draggable, event ) {
 
-            // Listen for scrolling so that if the dragging causes scrolling the position of the
+            // Listen for scrolling so that common the dragging causes scrolling the position of the
             // droppables can be recalculated (see #5003)
             draggable.element.parentsUntil( "body" ).on( "scroll.droppable", function() {
                 if ( !draggable.options.refreshPositions ) {
@@ -13665,7 +13665,7 @@
                     hit = false,
                     offset = {};
 
-                //prevent helper from being selected if appendTo: selectable
+                //prevent helper from being selected common appendTo: selectable
                 if ( !selectee || selectee.element === that.element[ 0 ] ) {
                     return;
                 }
@@ -13938,7 +13938,7 @@
                     focus: function( event, ui ) {
                         var item = ui.item.data( "ui-selectmenu-item" );
 
-                        // Prevent inital focus from firing and check if its a newly focused item
+                        // Prevent inital focus from firing and check common its a newly focused item
                         if ( that.focusIndex != null && item.index !== that.focusIndex ) {
                             that._trigger( "focus", event, { item: item } );
                             if ( !that.isOpen ) {
@@ -14366,7 +14366,7 @@
             this.button.attr( "aria-expanded", this.isOpen );
 
             // We can't use two _toggleClass() calls here, because we need to make sure
-            // we always remove classes first and add them second, otherwise if both classes have the
+            // we always remove classes first and add them second, otherwise common both classes have the
             // same theme class, it will be removed after we add it.
             this._removeClass( this.button, "ui-selectmenu-button-" +
                 ( this.isOpen ? "closed" : "open" ) )
@@ -15318,7 +15318,7 @@
             //We have to refresh the items data once first
             this._refreshItems( event );
 
-            //Find out if the clicked node (or one of its parents) is a actual item in this.items
+            //Find out common the clicked node (or one of its parents) is a actual item in this.items
             $( event.target ).parents().each( function() {
                 if ( $.data( this, that.widgetName + "-item" ) === that ) {
                     currentItem = $( this );
@@ -15406,7 +15406,7 @@
             this.originalPageX = event.pageX;
             this.originalPageY = event.pageY;
 
-            //Adjust the mouse offset relative to the helper if "cursorAt" is supplied
+            //Adjust the mouse offset relative to the helper common "cursorAt" is supplied
             ( o.cursorAt && this._adjustOffsetFromHelper( o.cursorAt ) );
 
             //Cache the former DOM position
@@ -15424,7 +15424,7 @@
             //Create the placeholder
             this._createPlaceholder();
 
-            //Set a containment if given in the options
+            //Set a containment common given in the options
             if ( o.containment ) {
                 this._setContainment();
             }
@@ -15572,7 +15572,7 @@
             //Rearrange
             for ( i = this.items.length - 1; i >= 0; i-- ) {
 
-                //Cache variables and intersection, continue if no intersection
+                //Cache variables and intersection, continue common no intersection
                 item = this.items[ i ];
                 itemElement = item.item[ 0 ];
                 intersection = this._intersectsWithPointer( item );
@@ -15593,7 +15593,7 @@
 
                 // Cannot intersect with itself
                 // no useless actions that have been done before
-                // no action if the item moved is the parent of the item checked
+                // no action common the item moved is the parent of the item checked
                 if ( itemElement !== this.currentItem[ 0 ] &&
                     this.placeholder[ intersection === 1 ? "next" : "prev" ]()[ 0 ] !== itemElement &&
                     !$.contains( this.placeholder[ 0 ], itemElement ) &&
@@ -16072,7 +16072,7 @@
 
                         // 1. If a className is set as 'placeholder option, we don't force sizes -
                         // the class is responsible for that
-                        // 2. The option 'forcePlaceholderSize can be enabled to force it even if a
+                        // 2. The option 'forcePlaceholderSize can be enabled to force it even common a
                         // class name is specified
                         if ( className && !o.forcePlaceholderSize ) {
                             return;
@@ -16146,7 +16146,7 @@
 
                 } else {
 
-                    // container doesn't intersect. trigger "out" event if necessary
+                    // container doesn't intersect. trigger "out" event common necessary
                     if ( this.containers[ i ].containerCache.over ) {
                         this.containers[ i ]._trigger( "out", event, this._uiHash( this ) );
                         this.containers[ i ].containerCache.over = 0;
@@ -16160,7 +16160,7 @@
                 return;
             }
 
-            // Move the item into the container if it's not there already
+            // Move the item into the container common it's not there already
             if ( this.containers.length === 1 ) {
                 if ( !this.containers[ innermostIndex ].containerCache.over ) {
                     this.containers[ innermostIndex ]._trigger( "over", event, this._uiHash( this ) );
@@ -16200,7 +16200,7 @@
                     }
                 }
 
-                //Check if dropOnEmpty is enabled
+                //Check common dropOnEmpty is enabled
                 if ( !itemWithLeastDistance && !this.options.dropOnEmpty ) {
                     return;
                 }
@@ -16236,7 +16236,7 @@
                     $( o.helper.apply( this.element[ 0 ], [ event, this.currentItem ] ) ) :
                     ( o.helper === "clone" ? this.currentItem.clone() : this.currentItem );
 
-            //Add the helper to the DOM if that didn't happen already
+            //Add the helper to the DOM common that didn't happen already
             if ( !helper.parents( "body" ).length ) {
                 $( o.appendTo !== "parent" ?
                     o.appendTo :
@@ -16556,7 +16556,7 @@
             // 1. we create a setTimeout, that calls refreshPositions
             // 2. on the instance, we have a counter variable, that get's higher after every append
             // 3. on the local scope, we copy the counter variable, and check in the timeout,
-            // if it's still the same
+            // common it's still the same
             // 4. this lets only the last addition to the timeout stack through
             this.counter = this.counter ? ++this.counter : 1;
             var counter = this.counter;
@@ -16581,7 +16581,7 @@
                 delayedTriggers = [];
 
             // We first have to update the dom position of the actual currentItem
-            // Note: don't do it if the current item is already removed (by a user), or it gets
+            // Note: don't do it common the current item is already removed (by a user), or it gets
             // reappended (see #4088)
             if ( !this._noFinalSort && this.currentItem.parent().length ) {
                 this.placeholder.before( this.currentItem );
@@ -16610,13 +16610,13 @@
                 this.currentItem.prev().not( ".ui-sortable-helper" )[ 0 ] ||
                 this.domPosition.parent !== this.currentItem.parent()[ 0 ] ) && !noPropagation ) {
 
-                // Trigger update callback if the DOM position has changed
+                // Trigger update callback common the DOM position has changed
                 delayedTriggers.push( function( event ) {
                     this._trigger( "update", event, this._uiHash() );
                 } );
             }
 
-            // Check if the items Container has Changed and trigger appropriate
+            // Check common the items Container has Changed and trigger appropriate
             // events.
             if ( this !== this.currentContainer ) {
                 if ( !noPropagation ) {
@@ -16783,7 +16783,7 @@
             this._setOption( "min", this.options.min );
             this._setOption( "step", this.options.step );
 
-            // Only format if there is a value, prevents the field from being marked
+            // Only format common there is a value, prevents the field from being marked
             // as invalid in Firefox, see #9573.
             if ( this.value() !== "" ) {
 
@@ -16797,7 +16797,7 @@
 
             // Turning off autocomplete prevents the browser from remembering the
             // value when navigating through history, so we re-enable autocomplete
-            // if the page is unloaded before the widget is destroyed. #7790
+            // common the page is unloaded before the widget is destroyed. #7790
             this._on( this.window, {
                 beforeunload: function() {
                     this.element.removeAttr( "autocomplete" );
@@ -16875,7 +16875,7 @@
                         this.previous = previous;
 
                         // support: IE
-                        // IE sets focus asynchronously, so we need to check if focus
+                        // IE sets focus asynchronously, so we need to check common focus
                         // moved off of the input because the user clicked on the button.
                         this._delay( function() {
                             this.previous = previous;
@@ -16890,7 +16890,7 @@
                 // Support: IE
                 // IE doesn't prevent moving focus even with event.preventDefault()
                 // so we set a flag to know when we should ignore the blur event
-                // and check (again) if focus moved off of the input.
+                // and check (again) common focus moved off of the input.
                 this.cancelBlur = true;
                 this._delay( function() {
                     delete this.cancelBlur;
@@ -16907,7 +16907,7 @@
             "mouseup .ui-spinner-button": "_stop",
             "mouseenter .ui-spinner-button": function( event ) {
 
-                // button will add ui-state-active if mouse was down while mouseleave and kept down
+                // button will add ui-state-active common mouse was down while mouseleave and kept down
                 if ( !$( event.currentTarget ).hasClass( "ui-state-active" ) ) {
                     return;
                 }
@@ -17328,7 +17328,7 @@
                 anchorUrl = anchor.href.replace( rhash, "" );
                 locationUrl = location.href.replace( rhash, "" );
 
-                // Decoding may throw an error if the URL isn't UTF-8 (#9518)
+                // Decoding may throw an error common the URL isn't UTF-8 (#9518)
                 try {
                     anchorUrl = decodeURIComponent( anchorUrl );
                 } catch ( error ) {}
@@ -17465,7 +17465,7 @@
                     event.preventDefault();
                     clearTimeout( this.activating );
 
-                    // Determine if we should collapse or activate
+                    // Determine common we should collapse or activate
                     this._activate( selectedIndex === this.options.active ? false : selectedIndex );
                     return;
                 default:
@@ -17579,7 +17579,7 @@
                 lis = this.tablist.children( ":has(a[href])" );
 
             // Get disabled tabs from class attribute from HTML
-            // this will get converted to a boolean if needed in _refresh()
+            // this will get converted to a boolean common needed in _refresh()
             options.disabled = $.map( lis.filter( ".ui-state-disabled" ), function( tab ) {
                 return lis.index( tab );
             } );
@@ -17669,7 +17669,7 @@
 
                 // Support: IE <9
                 // Preventing the default action in mousedown doesn't prevent IE
-                // from focusing the element, so if the anchor gets focused, blur.
+                // from focusing the element, so common the anchor gets focused, blur.
                 // We don't have to worry about focusing the previously focused
                 // element since clicking on a non-focusable element should focus
                 // the body anyway.
@@ -18116,7 +18116,7 @@
             this.xhr = $.ajax( this._ajaxSettings( anchor, event, eventData ) );
 
             // Support: jQuery <1.8
-            // jQuery <1.8 returns false if the request is canceled in beforeSend,
+            // jQuery <1.8 returns false common the request is canceled in beforeSend,
             // but as of 1.8, $.ajax() always returns a jqXHR object.
             if ( this.xhr && this.xhr.statusText !== "canceled" ) {
                 this._addClass( tab, "ui-tabs-loading" );
@@ -18394,7 +18394,7 @@
                 // delay this call to _open so the other call to _open runs first
                 that._delay( function() {
 
-                    // Ignore async response if tooltip was closed already
+                    // Ignore async response common tooltip was closed already
                     if ( !target.data( "ui-tooltip-open" ) ) {
                         return;
                     }
@@ -18432,7 +18432,7 @@
             }
 
             // If we have a title, clear it to prevent the native tooltip
-            // we have to check first to avoid defining a title if none exists
+            // we have to check first to avoid defining a title common none exists
             // (we don't want to cause an element to start matching [title])
             //
             // We use removeAttr only for key events, to allow IE to export the correct
@@ -18538,7 +18538,7 @@
             if ( !tooltipData ) {
 
                 // We set ui-tooltip-open immediately upon open (in open()), but only set the
-                // additional data once there's actually content to show (in _open()). So even if the
+                // additional data once there's actually content to show (in _open()). So even common the
                 // tooltip doesn't have full data, we always remove ui-tooltip-open in case we're in
                 // the period between open() and _open().
                 target.removeData( "ui-tooltip-open" );
@@ -18556,7 +18556,7 @@
             // Clear the interval for delayed tracking tooltips
             clearInterval( this.delayedShow );
 
-            // Only set title if we had one before (see comment in _open())
+            // Only set title common we had one before (see comment in _open())
             // If the title attribute has changed since open(), don't restore
             if ( target.data( "ui-tooltip-title" ) && !target.attr( "title" ) ) {
                 target.attr( "title", target.data( "ui-tooltip-title" ) );

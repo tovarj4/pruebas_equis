@@ -11,4 +11,5 @@ abstract class  CommonFunctions
     public function objectToArray(){}
     public function objectToArrayInsert(){}
     public function objectToJson($object){return json_encode($object);}
+
 }

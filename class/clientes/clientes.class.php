@@ -1,7 +1,7 @@
 <?php
 include_once ('../core/db.core.php');
 include_once ('./clientes.model.php');
-include_once ('../if/crud.php');
+include_once('../common/crud.php');
 
 class Clientes extends db_core implements Crud
 {
