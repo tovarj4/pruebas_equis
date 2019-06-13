@@ -92,7 +92,7 @@ var clientes =
             $.ajax(
                 {
                     data: {"action":"0"},
-                    url: "class/clientes/usuarios.fn.php",
+                    url: "class/clientes/clientes.fn.php",
                     type: "post",
                     beforeSend: function(){
                         $("#content").empty().load("./views/clientes_view.html");
@@ -122,7 +122,7 @@ var clientes =
             $.ajax(
             {
                 data: params,
-                url: "class/clientes/usuarios.fn.php",
+                url: "class/clientes/clientes.fn.php",
                 type: "post",
                 dataType: "json",
                 beforeSend: function(){
@@ -175,7 +175,7 @@ var clientes =
             $.ajax(
                 {
                     data: params,
-                    url: "class/clientes/usuarios.fn.php",
+                    url: "class/clientes/clientess.fn.php",
                     type: "post",
                     dataType: "json",
                     success: function (response) {
@@ -212,7 +212,7 @@ var clientes =
             $.ajax(
                 {
                     data: params,
-                    url: "class/clientes/usuarios.fn.php",
+                    url: "class/clientes/clientes.fn.php",
                     type: "post",
                     dataType: "json",
                     success: function (response) {
@@ -240,7 +240,7 @@ var clientes =
             $.ajax(
                 {
                     data: params,
-                    url: "class/clientes/usuarios.fn.php",
+                    url: "class/clientes/clientes.fn.php",
                     type: "post",
                     dataType: "json",
                     success: function (response) {

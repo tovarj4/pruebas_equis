@@ -16,7 +16,8 @@
 <div id="form_container">
 
     <h1><a>Ingresar</a></h1>
-    <form id="form_61596" class="appnitro" method="post" action="">
+    <form id="form_61596" class="appnitro" method="post"
+          action="http://localhost/pruebas_equis/class/login/login.user.fn.php">
         <div class="form_description">
             <h2>Ingresar</h2>
             <p>Ingresa tus credenciales para acceder al sistema.</p>
@@ -33,9 +34,9 @@
                 </p>
             </li>
             <li id="li_2">
-                <label class="description" for="password">Password </label>
+                <label class="description" for="pass">Password </label>
                 <div>
-                    <input id="password" name="password" class="form-control" type="password" maxlength="255" value=""/>
+                    <input id="pass" name="pass" class="form-control" type="password" maxlength="255" value=""/>
                 </div>
                 <p class="guidelines" id="guide_2">
                     <small>Password</small>

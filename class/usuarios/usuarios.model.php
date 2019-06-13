@@ -85,7 +85,7 @@ class usuarios_model extends CommonFunctions
     public function getSentence($type)
     {
         $sentence = "";
-        if ($type === "select") {
+        if ($type === "insert") {
             $sentence = "INSERT INTO usuarios(usuario, password, ultimo_ingreso, nombre, apellido_paterno, apellido_materno, email, telefono, fecha_ingreso, fecha_nacimiento, direccion, id_codigo_postal, id_status, id_tipo_usuario)";
             $sentence .= "VALUES (";
             $sentence .= " :usuario";
